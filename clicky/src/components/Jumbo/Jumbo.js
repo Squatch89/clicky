@@ -1,9 +1,12 @@
 import React from 'react';
+import './Jumbo.css';
 
 const Jumbo = props => (
-    <div className="jumbotron">
-        <h1>Clicky Game!</h1>
-        <h4>Click on an image to earn points, but don't click on any more than once!</h4>
+    <div className='row'>
+        <div className="jumbotron jumbo">
+            <h1 className="text-center">Clicky Game!</h1>
+            <h2 className="text-center">Click on an image to earn points, but don't click on any more than once!</h2>
+        </div>
     </div>
 );
 

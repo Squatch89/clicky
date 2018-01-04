@@ -1,13 +1,14 @@
 import React from 'react';
+import './Footer.css';
 
 const Footer = props => (
-  
-    <div className="footer">
+  <div className="row fixed-bottom">
+    <footer className="footer">
         <div className='innerFooter'>
-            <p>Clicky Game!</p>
-            <img />
+            <p className="footer-p">Clicky Game!</p>
         </div>
-    </div>
+    </footer>
+  </div>
 );
 
 export default Footer;
