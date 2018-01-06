@@ -52,32 +52,44 @@ class App extends Component {
             {id: 11, image: "http://static.tvtropes.org/pmwiki/pub/images/i2h2pgn.png", clicked: false},
             {id: 12, image: "http://static.tvtropes.org/pmwiki/pub/images/13_1.jpg", clicked: false}
         ],
-        counter: 0
+        counter: 0,
+        topScore: 0
     };
     
-    sortImages = id => {
+    sortImages = (id, clicked) => {
         
         const imageOrder = this.state.image;
         
+        //need to reference the image in the forEach and not the imageOrder array
         
-        imageOrder.forEach((image, index) => {
-            if (index === id) {
-                console.log(id);
-                console.log(index);
-                console.log(imageOrder[index].id);
-                if (imageOrder[index].clicked === true) {
-                    console.log("true");
-                   return this.setState({image: imageOrder.sort(() => Math.random() - 0.5), counter: 0})
-                }
-                else {
-                    console.log("false");
+        if (clicked) {
+            console.log("true");
+            imageOrder.forEach((img, index) => {
+                console.log(imageOrder[index].clicked);
+                imageOrder[index].clicked = false;
+                console.log(imageOrder[index].clicked);
+            });
+            return this.setState({
+                image: imageOrder.sort(() => Math.random() - 0.5),
+                topScore: this.state.counter,
+                counter: 0
+            })
+        }
+        else {
+            console.log("false");
+            imageOrder.forEach((image, index) => {
+                if (id === image.id) {
+                    console.log(index);
+                    console.log(image);
+                    console.log(imageOrder[index].clicked);
+                    console.log(imageOrder[index].image);
+                    console.log(imageOrder[index].id);
                     imageOrder[index].clicked = true;
-                    console.log(imageOrder);
-                   return this.setState({image: imageOrder.sort(() => Math.random() - 0.5), counter: this.state.counter + 1})
+                    console.log(imageOrder[index].clicked);
                 }
-            }
-        })
-        
+            });
+            return this.setState({image: imageOrder.sort(() => Math.random() - 0.5), counter: this.state.counter + 1})
+        }
     };
     
     render() {
@@ -85,6 +97,7 @@ class App extends Component {
             <Wrapper>
                 <Header
                     score={this.state.counter}
+                    topScore={this.state.topScore}
                 />
                 <Jumbo/>
                 <GameSpace>
