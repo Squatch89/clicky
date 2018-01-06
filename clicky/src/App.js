@@ -65,9 +65,9 @@ class App extends Component {
         if (clicked) {
             console.log("true");
             imageOrder.forEach((img, index) => {
-                console.log(imageOrder[index].clicked);
+                // console.log(imageOrder[index].clicked);
                 imageOrder[index].clicked = false;
-                console.log(imageOrder[index].clicked);
+                // console.log(imageOrder[index].clicked);
             });
             return this.setState({
                 image: imageOrder.sort(() => Math.random() - 0.5),
@@ -79,13 +79,13 @@ class App extends Component {
             console.log("false");
             imageOrder.forEach((image, index) => {
                 if (id === image.id) {
-                    console.log(index);
-                    console.log(image);
-                    console.log(imageOrder[index].clicked);
-                    console.log(imageOrder[index].image);
-                    console.log(imageOrder[index].id);
+                    // console.log(index);
+                    // console.log(image);
+                    // console.log(imageOrder[index].clicked);
+                    // console.log(imageOrder[index].image);
+                    // console.log(imageOrder[index].id);
                     imageOrder[index].clicked = true;
-                    console.log(imageOrder[index].clicked);
+                    // console.log(imageOrder[index].clicked);
                 }
             });
             return this.setState({image: imageOrder.sort(() => Math.random() - 0.5), counter: this.state.counter + 1})
